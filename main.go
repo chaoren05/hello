@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"net/http"
 	"strings"
+	"log"
 )
 
 type weatherData struct {
@@ -102,7 +103,7 @@ func (w weatherUnderground) temperature(city string) (float64, error){
 		return 0, err
 	}
 	
-	kelvin := d.Observation.Celsius + 273.15
+	Kelvin := d.Observation.Celsius + 273.15
 	log.Printf("weatherUnderground: %s: %.2f", city, Kelvin)
 	return Kelvin, nil
 }
